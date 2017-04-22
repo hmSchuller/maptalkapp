@@ -26,6 +26,7 @@ class MapContainerView extends Component {
 
   render(){
 		let windowDims = Dimensions.get('window');
+		console.log(this.mapView);
     if (this.props.location.isFetching) {
       return (
         <View style={styles.container}><ActivityIndicator
@@ -38,15 +39,24 @@ class MapContainerView extends Component {
       return (
         <View style={styles.container}>
           <MapView
+						ref={(c) => {this.mapView=c}}
             initialRegion={this.props.location.initialPosition}
             region={this.props.location.position}
             style={styles.mapView}
             onRegionChange={(region) => {
-              console.log(region);
               this.props.changeRegion(region);
+							this.props.fetchMessages(region);
             }}
             showsUserLocation={true}
-          />
+          >
+					{this.props.markers.map(marker => (
+				     <MapView.Marker key={marker.id}
+					      coordinate={{latitude: marker.attributes.lat,longitude:marker.attributes.lng}}
+					      title={marker.attributes.author}
+					      description={marker.attributes.text}
+					    />
+					))}
+					</MapView>
 					<View style={this.actionButtonStyle(windowDims.width)}>
 						<TouchableHighlight
 							onPress={() => {
@@ -102,6 +112,7 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
 	return {
     location: state.location,
+		markers: state.markers,
 	}
 }
 function mapDispatchToProps(dispatch) {

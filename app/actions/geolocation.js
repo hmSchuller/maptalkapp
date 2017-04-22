@@ -1,6 +1,8 @@
 import * as types from './types'
 import Api from '../lib/api'
 
+
+
 export function getInitialLocation() {
     return (dispatch, getState) => {
       dispatch(startLocationRequest());
@@ -54,7 +56,7 @@ function regionFrom(lat, lon, accuracy) {
       longitude: lon,
       // latitudeDelta: Math.max(0, latDelta)*10000,
       // longitudeDelta: Math.max(0, lonDelta)*10000,
-      latitudeDelta: 10,
-      longitudeDelta: 10,
+      latitudeDelta: 0.005,
+      longitudeDelta: 0.005,
     };
   }

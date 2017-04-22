@@ -1,5 +1,8 @@
-import ReactNative from 'react-native'
+import createReducer from '../lib/createReducer'
+import * as types from '../actions/types'
 
-export default function getMessages(state = {}, action) {
-    return state
-}
+export const markers = createReducer([], {
+  [types.FINISH_MESSAGE_REQUEST](state, action){
+      return action.markers
+  }
+});
