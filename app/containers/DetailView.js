@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
 	return {
-        userRequest: state.userRequest
 	}
 }
 function mapDispatchToProps(dispatch) {

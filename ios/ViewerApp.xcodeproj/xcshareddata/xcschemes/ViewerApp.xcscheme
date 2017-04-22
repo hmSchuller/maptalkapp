@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "maptalkapp.app"
-               BlueprintName = "maptalkapp"
-               ReferencedContainer = "container:maptalkapp.xcodeproj">
+               BuildableName = "ViewerApp.app"
+               BlueprintName = "ViewerApp"
+               ReferencedContainer = "container:ViewerApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "maptalkappTests.xctest"
-               BlueprintName = "maptalkappTests"
-               ReferencedContainer = "container:maptalkapp.xcodeproj">
+               BuildableName = "ViewerAppTests.xctest"
+               BlueprintName = "ViewerAppTests"
+               ReferencedContainer = "container:ViewerApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "maptalkappTests.xctest"
-               BlueprintName = "maptalkappTests"
-               ReferencedContainer = "container:maptalkapp.xcodeproj">
+               BuildableName = "ViewerAppTests.xctest"
+               BlueprintName = "ViewerAppTests"
+               ReferencedContainer = "container:ViewerApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "maptalkapp.app"
-            BlueprintName = "maptalkapp"
-            ReferencedContainer = "container:maptalkapp.xcodeproj">
+            BuildableName = "ViewerApp.app"
+            BlueprintName = "ViewerApp"
+            ReferencedContainer = "container:ViewerApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "maptalkapp.app"
-            BlueprintName = "maptalkapp"
-            ReferencedContainer = "container:maptalkapp.xcodeproj">
+            BuildableName = "ViewerApp.app"
+            BlueprintName = "ViewerApp"
+            ReferencedContainer = "container:ViewerApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "maptalkapp.app"
-            BlueprintName = "maptalkapp"
-            ReferencedContainer = "container:maptalkapp.xcodeproj">
+            BuildableName = "ViewerApp.app"
+            BlueprintName = "ViewerApp"
+            ReferencedContainer = "container:ViewerApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

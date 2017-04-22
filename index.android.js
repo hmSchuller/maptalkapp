@@ -42,4 +42,4 @@
  );
 
 
- AppRegistry.registerComponent('maptalkapp', () => App);
+ AppRegistry.registerComponent('ViewerApp', () => App);
