@@ -3,20 +3,31 @@ import ReactNative from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
+import MapView from 'react-native-maps'
+
 
 const {
 	View,
 	StyleSheet,
 } = ReactNative
 
-class MapView extends Component {
+class MapContainerView extends Component {
   constructor(props) {
     super(props);
   }
 
   render(){
       return (
-        <View style={styles.container}></View>
+        <View style={styles.container}>
+          <MapView
+            initialRegion={{
+              latitude: 37.78825,
+              longitude: -122.4324,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+          />
+        </View>
       )
   }
 }
@@ -24,7 +35,6 @@ class MapView extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#ffa500',
 				marginTop: 50,
     },
 });
@@ -39,4 +49,4 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapView);
+export default connect(mapStateToProps, mapDispatchToProps)(MapContainerView);

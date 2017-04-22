@@ -11,7 +11,6 @@
  import createLogger from 'redux-logger';
  import reducer from './app/reducers';
  import AppContainer from './app/containers/AppContainer';
- import NavigationWrapper from './app/containers/NavigationWrapper'
 
  import {
    AppRegistry,

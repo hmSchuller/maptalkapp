@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "base-64": "^0.1.0",
+    "module-resolver": "^1.0.0",
     "native-base": "^2.0.6",
     "react": "15.4.2",
     "react-addons-pure-render-mixin": "^15.5.0",
@@ -16,7 +17,7 @@
     "react-native-drawer": "^2.3.0",
     "react-native-image-picker": "^0.26.3",
     "react-native-image-resizer": "^0.1.0",
-    "react-native-maps": "^0.14.0",
+    "react-native-maps": "^0.13.0",
     "react-native-router-flux": "^3.38.1",
     "react-native-vector-icons": "^4.0.0",
     "react-redux": "^4.4.5",

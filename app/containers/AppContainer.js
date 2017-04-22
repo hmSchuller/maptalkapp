@@ -7,7 +7,7 @@ import { Router, Scene, TabBar } from 'react-native-router-flux';
 
 import DetailView from './DetailView'
 import ListView from './ListView'
-import MapView from './MapView'
+import MapContainerView from './MapContainerView'
 import PostView from './PostView'
 
 import {
@@ -31,7 +31,7 @@ class AppContainer extends Component {
       <Scene key="root" >
         <Scene key="tabbar" tabs={true} style={styles.tabBarStyle}>
             <Scene key="tab1" title="Karte" icon={TabIcon} initial={true}>
-              <Scene key='map' title="Karte" component={MapView} />
+              <Scene key='map' title="Karte" component={MapContainerView} />
             </Scene>
             <Scene key="tab2" title="In der Nähe" icon={TabIcon} >
               <Scene key='detail' title="In der Nähe"component={DetailView} />
