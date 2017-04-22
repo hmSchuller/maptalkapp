@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
 import MapView from 'react-native-maps'
 import Icon from 'react-native-vector-icons/Ionicons'
+import { Actions } from 'react-native-router-flux'
 
 const {
 	View,
@@ -37,7 +38,7 @@ class MapContainerView extends Component {
       return (
         <View style={styles.container}>
           <MapView
-            initialRegion={this.props.location.position}
+            initialRegion={this.props.location.initialPosition}
             region={this.props.location.position}
             style={styles.mapView}
             onRegionChange={(region) => {
@@ -49,7 +50,7 @@ class MapContainerView extends Component {
 					<View style={this.actionButtonStyle(windowDims.width)}>
 						<TouchableHighlight
 							onPress={() => {
-								console.log("click");
+								Actions.postMessage();
 							}}
 							>
 							<Icon name='ios-add-circle-outline' size={60}/>

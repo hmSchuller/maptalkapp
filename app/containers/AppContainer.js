@@ -3,7 +3,7 @@ import ReactNative from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
-import { Router, Scene, TabBar } from 'react-native-router-flux';
+import { Router, Scene, TabBar, Modal, Actions } from 'react-native-router-flux';
 
 import DetailView from './DetailView'
 import ListView from './ListView'
@@ -14,7 +14,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 const TabIcon = ({ selected, title }) => {
@@ -37,6 +38,16 @@ class AppContainer extends Component {
               <Scene key='detail' title="In der Nähe"component={DetailView} />
             </Scene>
         </Scene>
+        <Scene key='postMessage'
+        title="Mach neues Ding"
+        component={PostView}
+        direction="vertical"
+        renderBackButton={() => {
+          return <TouchableWithoutFeedback onPress={() => { Actions.pop() } }>
+          <View><Text style={{fontSize: 18}}>Abbrechen</Text></View>
+          </TouchableWithoutFeedback>}
+        }
+        onRight={() => {Actions.pop()}} rightTitle="Speichern"/>
       </Scene>
       </Router>
     );

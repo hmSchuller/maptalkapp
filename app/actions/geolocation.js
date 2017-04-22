@@ -7,7 +7,7 @@ export function getInitialLocation() {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           console.log(position);
-          dispatch(finishLocationRequest(regionFrom(position.coords.latitude, position.coords.longitude, position.coords.accuracy)));
+          dispatch(finishInitialLocationRequest(regionFrom(position.coords.latitude, position.coords.longitude, position.coords.accuracy)));
         },
         (error) => {
           console.log(error);
@@ -35,6 +35,13 @@ function finishLocationRequest(position) {
   }
 }
 
+function finishInitialLocationRequest(position) {
+  return {
+    type: types.FINISH_INITIAL_LOCATION_FETCH,
+    position
+  }
+}
+
 function regionFrom(lat, lon, accuracy) {
     const oneDegreeOfLongitudeInMeters = 111.32 * 1000;
     const circumference = (40075 / 360) * 1000;
@@ -47,7 +54,7 @@ function regionFrom(lat, lon, accuracy) {
       longitude: lon,
       // latitudeDelta: Math.max(0, latDelta)*10000,
       // longitudeDelta: Math.max(0, lonDelta)*10000,
-      latitudeDelta: 5,
-      longitudeDelta: 5,
+      latitudeDelta: 10,
+      longitudeDelta: 10,
     };
   }
