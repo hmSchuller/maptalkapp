@@ -3,8 +3,12 @@ import ReactNative from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
-import { Router, Scene } from 'react-native-router-flux';
+import { Router, Scene, TabBar } from 'react-native-router-flux';
 
+import DetailView from './DetailView'
+import ListView from './ListView'
+import MapView from './MapView'
+import PostView from './PostView'
 
 import {
   AppRegistry,
@@ -13,21 +17,28 @@ import {
   View
 } from 'react-native';
 
+const TabIcon = ({ selected, title }) => {
+  return (
+    <Text style={{color: selected ? 'red' :'black'}}>{title}</Text>
+  );
+}
+
+
 class AppContainer extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <Router>
+      <Scene key="root" >
+        <Scene key="tabbar" tabs={true} style={styles.tabBarStyle}>
+            <Scene key="tab1" title="Karte" icon={TabIcon} initial={true}>
+              <Scene key='map' title="Karte" component={MapView} />
+            </Scene>
+            <Scene key="tab2" title="In der Nähe" icon={TabIcon} >
+              <Scene key='detail' title="In der Nähe"component={DetailView} />
+            </Scene>
+        </Scene>
+      </Scene>
+      </Router>
     );
   }
 }
@@ -38,6 +49,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  tabBarStyle: {
+    borderTopWidth : .5,
+    borderColor    : '#b7b7b7',
+    backgroundColor: 'white',
+    opacity        : 1
   },
   welcome: {
     fontSize: 20,
