@@ -5,7 +5,7 @@ React Native App created at the Hackaburg 2017 Hackathon in Regensburg
 
 Mapview:
 
-![Overview1](./Screenshots/iOS/overview.png?raw=true)  ! [Overview2](./Screenshots/android/overview.png?raw=true)
+![Overview1](./Screenshots/iOS/overview.png?raw=true)  ![Overview2](./Screenshots/android/overview.png?raw=true)
 
 Listview of items near you:
 
