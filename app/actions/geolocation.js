@@ -53,7 +53,7 @@ function regionFrom(lat, lon, accuracy) {
       longitude: lon,
       // latitudeDelta: Math.max(0, latDelta)*10000,
       // longitudeDelta: Math.max(0, lonDelta)*10000,
-      latitudeDelta: 0.005,
-      longitudeDelta: 0.005,
+      latitudeDelta: 0.25,
+      longitudeDelta: 0.25,
     };
   }
