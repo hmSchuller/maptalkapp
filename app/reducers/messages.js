@@ -15,3 +15,16 @@ export const markers = createReducer({data: []}, {
     })
   }
 });
+
+export const postMarker = createReducer({}, {
+  [types.START_POST_REQUEST] (state, action) {
+    return Object.assign({}, state, {
+      inProgess: true
+    });
+  },
+  [types.FINISH_POST_REQUEST] (state, action) {
+    return Object.assign({}, state, {
+      inProgess: false
+    });
+  },
+});

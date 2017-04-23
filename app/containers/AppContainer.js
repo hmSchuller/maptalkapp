@@ -46,8 +46,7 @@ class AppContainer extends Component {
           return <TouchableWithoutFeedback onPress={() => { Actions.pop() } }>
           <View><Text style={{fontSize: 18}}>Abbrechen</Text></View>
           </TouchableWithoutFeedback>}
-        }
-        onRight={() => {Actions.pop()}} rightTitle="Speichern"/>
+        } />
       </Scene>
       </Router>
     );
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
     return {
-
+      
     }
 }
 

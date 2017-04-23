@@ -60,7 +60,7 @@ class ListView extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 10,
-				marginTop: 60,
+				marginTop: 55,
 				backgroundColor: '#c0c0c0'
     },
     listItemOuterContainer: {

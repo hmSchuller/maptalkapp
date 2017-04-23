@@ -12,6 +12,29 @@ export function fetchMessages(position) {
     }
 }
 
+export function postMarker(marker) {
+  return (dispatch, getState) => {
+    dispatch(startPostRequest());
+    Api.post('messages/', marker).then(resp => {
+      console.log(resp);
+      dispatch(finishPostRequest());
+    }).catch(error => {
+      console.log(error);
+    })
+  }
+}
+
+function startPostRequest() {
+  return {
+    type: types.START_POST_REQUEST
+  }
+}
+
+function finishPostRequest() {
+  return {
+    type: types.FINISH_POST_REQUEST
+  }
+}
 
 function startRequest() {
   return {
