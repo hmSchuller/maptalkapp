@@ -11,6 +11,6 @@ Listview of items near you:
 
 ![Near1](./Screenshots/iOS/near.png?raw=true) ![Near2](./Screenshots/android/near.png?raw=true)
 
-Adding a new view:
+Adding a new makrer:
 
 ![Post1](./Screenshots/iOS/post.png?raw=true) ![Post2](./Screenshots/android/post.png?raw=true)
