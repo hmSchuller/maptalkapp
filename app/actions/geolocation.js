@@ -1,8 +1,6 @@
 import * as types from './types'
 import Api from '../lib/api'
 
-
-
 export function getInitialLocation() {
     return (dispatch, getState) => {
       dispatch(startLocationRequest());

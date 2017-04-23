@@ -4,9 +4,10 @@ import Api from '../lib/api'
 export function fetchMessages(position) {
     return (dispatch, getState) => {
       dispatch(startRequest());
-      Api.get(`messages?lat=${position.latitude}&lng=${position.longitude}&m=${10000}`).then(resp => {
-        console.log(resp);
+      Api.get(`messages?lat=${position.latitude}&lng=${position.longitude}&m=${20000}`).then(resp => {
         dispatch(finishRequest(resp.data))
+      }).catch((error) => {
+        dispatch(finishRequest([]));
       })
     }
 }

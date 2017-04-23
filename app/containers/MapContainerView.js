@@ -12,7 +12,8 @@ const {
 	StyleSheet,
   ActivityIndicator,
 	Dimensions,
-	TouchableHighlight
+	TouchableHighlight,
+	Image
 } = ReactNative
 
 class MapContainerView extends Component {
@@ -20,13 +21,12 @@ class MapContainerView extends Component {
     super(props);
   }
 
-  componenDidMount(){
+  componentDidMount(){
     this.props.getInitialLocation();
   }
 
   render(){
 		let windowDims = Dimensions.get('window');
-		console.log(this.mapView);
     if (this.props.location.isFetching) {
       return (
         <View style={styles.container}><ActivityIndicator
@@ -39,7 +39,6 @@ class MapContainerView extends Component {
       return (
         <View style={styles.container}>
           <MapView
-						ref={(c) => {this.mapView=c}}
             initialRegion={this.props.location.initialPosition}
             region={this.props.location.position}
             style={styles.mapView}
@@ -49,21 +48,21 @@ class MapContainerView extends Component {
             }}
             showsUserLocation={true}
           >
-					{this.props.markers.map(marker => (
+					{this.props.markers.data.map(marker => (
 				     <MapView.Marker key={marker.id}
 					      coordinate={{latitude: marker.attributes.lat,longitude:marker.attributes.lng}}
-					      title={marker.attributes.author}
-					      description={marker.attributes.text}
+					      title={marker.attributes.text}
+					      description={marker.attributes.author}
 					    />
 					))}
 					</MapView>
-					<View style={this.actionButtonStyle(windowDims.width)}>
+					<View>
 						<TouchableHighlight
 							onPress={() => {
 								Actions.postMessage();
 							}}
 							>
-							<Icon name='ios-add-circle-outline' size={60}/>
+							<Image source={require("../img/add_button.png")} style={this.actionButtonStyle(windowDims.width)}/>
 						</TouchableHighlight>
 					</View>
         </View>
@@ -73,24 +72,13 @@ class MapContainerView extends Component {
 
 	actionButtonStyle = (width) => {
 		return {
-			backgroundColor: '#ff5722',
-			borderColor: '#ff5722',
-			borderWidth: 1,
-			height: 50,
-			width: 50,
-			borderRadius: 50,
+			height: 64,
+			width: 64,
 			alignItems: 'center',
 			justifyContent: 'center',
 			position: 'absolute',
 			bottom: 60,
-			right:width/2-25,
-			shadowColor: "#000000",
-			shadowOpacity: 0.8,
-			shadowRadius: 2,
-			shadowOffset: {
-				height: 1,
-				width: 0
-			}
+			right:width/2-32,
 		}
 	}
 }

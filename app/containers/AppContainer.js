@@ -35,7 +35,7 @@ class AppContainer extends Component {
               <Scene key='map' title="Karte" component={MapContainerView} />
             </Scene>
             <Scene key="tab2" title="In der Nähe" icon={TabIcon} >
-              <Scene key='detail' title="In der Nähe"component={DetailView} />
+              <Scene key='detail' title="In der Nähe"component={ListView} />
             </Scene>
         </Scene>
         <Scene key='postMessage'

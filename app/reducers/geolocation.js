@@ -9,13 +9,14 @@ export const location = createReducer({}, {
   },
   [types.FINISH_LOCATION_FETCH](state, action) {
     return Object.assign({}, state, {
+      isFetching: false,
       position: action.position,
     })
   },
   [types.FINISH_INITIAL_LOCATION_FETCH](state, action) {
     return Object.assign({}, state, {
       isFetching: false,
-      initialPosition: action.initialPosition,
+      initialPosition: action.position,
     })
   },
 });
