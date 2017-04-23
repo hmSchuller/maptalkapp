@@ -4,9 +4,8 @@ import Api from '../lib/api'
 export function getInitialLocation() {
     return (dispatch, getState) => {
       dispatch(startLocationRequest());
-      navigator.geolocation.getCurrentPosition(
+      return navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position);
           dispatch(finishInitialLocationRequest(regionFrom(position.coords.latitude, position.coords.longitude, position.coords.accuracy)));
         },
         (error) => {

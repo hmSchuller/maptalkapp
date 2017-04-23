@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
 import { Router, Scene, TabBar, Modal, Actions } from 'react-native-router-flux';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 import DetailView from './DetailView'
 import ListView from './ListView'
 import MapContainerView from './MapContainerView'
@@ -15,7 +15,7 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
 } from 'react-native';
 
 const TabIcon = ({ selected, title }) => {
@@ -32,14 +32,14 @@ class AppContainer extends Component {
       <Scene key="root" >
         <Scene key="tabbar" tabs={true} style={styles.tabBarStyle}>
             <Scene key="tab1" title="Karte" icon={TabIcon} initial={true}>
-              <Scene key='map' title="Karte" component={MapContainerView} />
+              <Scene key='map' title="Karte" component={MapContainerView} rightTitle="Hinzufügen" onRight={() => {Actions.postMessage()}}/>
             </Scene>
             <Scene key="tab2" title="In der Nähe" icon={TabIcon} >
               <Scene key='detail' title="In der Nähe"component={ListView} />
             </Scene>
         </Scene>
         <Scene key='postMessage'
-        title="Mach neues Ding"
+        title="Marker hinzufügen"
         component={PostView}
         direction="vertical"
         renderBackButton={() => {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
     return {
-      
+
     }
 }
 

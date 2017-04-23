@@ -3,6 +3,7 @@ import ReactNative from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../actions'
+import { Actions } from 'react-native-router-flux'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 
@@ -18,14 +19,14 @@ const {
 
 let radio_props = [
   {label: 'Nachricht', value: "comment" },
-  {label: 'Verkehr', value: "comment" },
-  {label: 'Ort', value: "comment" },
+  {label: 'Verkehr', value: "traffic" },
+  {label: 'Ort', value: "location" },
 ];
 
 class PostView extends Component {
   constructor(props) {
     super(props);
-    this.state = {author: '', message: '', type: ''}
+    this.state = {author: '', message: '', type: radio_props[0].value}
   };
 
   render(){
@@ -33,7 +34,7 @@ class PostView extends Component {
         <View style={styles.container}>
           <View style={styles.contentContainer}>
             <TextInput
-                style={ styles.author }
+                style={styles.author}
                 placeholder="Nickname"
                 onChangeText={(text) => this.setState({author: text})}
                 value={this.state.author}/>
@@ -41,7 +42,8 @@ class PostView extends Component {
                 style={ styles.message }
                 placeholder="Nachricht"
                 onChangeText={(text) => this.setState({message: text})}
-                value={this.state.message}/>
+                value={this.state.message}
+								multiline={true}/>
             <View style={styles.picker}>
               <RadioForm
                 radio_props={radio_props}
@@ -52,8 +54,7 @@ class PostView extends Component {
             <Button onPress={() => {
               if(this.state.author != '' && this.state.message != '' && this.state.type != '') {
                 let marker = {
-                  type: 'messages',
-                  attributes: {
+                  message: {
                     text: this.state.message,
                     author: this.state.author,
                     type: this.state.type,
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     },
     author: {
       paddingLeft: 10,
-      height: 30,
+      height: 40,
       backgroundColor: '#d3d3d3'
     },
     message: {

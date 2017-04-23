@@ -53,6 +53,7 @@ class MapContainerView extends Component {
 					      coordinate={{latitude: marker.attributes.lat,longitude:marker.attributes.lng}}
 					      title={marker.attributes.text}
 					      description={marker.attributes.author}
+								pinColor={this.pinColorForType(marker.attributes.type)}
 					    />
 					))}
 					</MapView>
@@ -69,6 +70,17 @@ class MapContainerView extends Component {
       )
     }
   }
+
+	pinColorForType(type) {
+		let pinColor;
+		if (type=='comment'){
+			return '#6cc0e5'
+		} else if(type=='traffic') {
+			return '#fb4f4f'
+		} else if(type=='location'){
+			return '#8bc34a'
+		}
+	}
 
 	actionButtonStyle = (width) => {
 		return {

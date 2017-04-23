@@ -45,9 +45,9 @@ class ListView extends Component {
             <View key={item.id} style={styles.listItemOuterContainer}>
               <View style={styles.listItemInnerContainer}>
 								<Text style={styles.author}>{item.attributes.author}</Text>
-								<Text style={styles.message}>{item.attributes.text} asjhdjaskdjhasjkdashkjasdjkhasdkjhas dkjasdkjahsdkj ashdkjashdjkashd jkasd</Text>
+								<Text style={styles.message}>{item.attributes.text}</Text>
               </View>
-              <Icon name='map-marker' size={40}/>
+              <Icon name={this.iconNameForType(item.attributes.type)} size={40}/>
             </View>
           )
         })}
@@ -55,7 +55,19 @@ class ListView extends Component {
       )
     }
   }
+
+	iconNameForType(type) {
+		let name;
+		if (type=='comment'){
+			return 'calendar'
+		} else if(type=='traffic') {
+			return 'exclamation-triangle'
+		} else if(type=='location'){
+			return 'map-marker'
+		}
+	}
 }
+
 
 const styles = StyleSheet.create({
     container: {

@@ -17,6 +17,7 @@ export const location = createReducer({}, {
     return Object.assign({}, state, {
       isFetching: false,
       initialPosition: action.position,
+      position: action.position,
     })
   },
 });

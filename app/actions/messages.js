@@ -15,7 +15,7 @@ export function fetchMessages(position) {
 export function postMarker(marker) {
   return (dispatch, getState) => {
     dispatch(startPostRequest());
-    Api.post('messages/', marker).then(resp => {
+    return Api.post('messages/', marker).then(resp => {
       console.log(resp);
       dispatch(finishPostRequest());
     }).catch(error => {
